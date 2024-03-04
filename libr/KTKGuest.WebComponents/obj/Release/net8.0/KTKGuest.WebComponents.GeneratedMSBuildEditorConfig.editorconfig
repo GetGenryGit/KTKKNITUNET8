@@ -1,0 +1,71 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows,browser
+build_property.RootNamespace = KTKGuest.WebComponents
+build_property.RootNamespace = KTKGuest.WebComponents
+build_property.ProjectDir = C:\Users\ilyao\KTKKNITUNET8\KTKGUEST\libr\KTKGuest.WebComponents\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\ilyao\KTKKNITUNET8\KTKGUEST\libr\KTKGuest.WebComponents
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/ilyao/KTKKNITUNET8/KTKGUEST/libr/KTKGuest.WebComponents/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ilyao/KTKKNITUNET8/KTKGUEST/libr/KTKGuest.WebComponents/Other/Feedback/FeedbackForm.razor]
+build_metadata.AdditionalFiles.TargetPath = T3RoZXJcRmVlZGJhY2tcRmVlZGJhY2tGb3JtLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ilyao/KTKKNITUNET8/KTKGUEST/libr/KTKGuest.WebComponents/Other/Loading/LoadingBody.razor]
+build_metadata.AdditionalFiles.TargetPath = T3RoZXJcTG9hZGluZ1xMb2FkaW5nQm9keS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ilyao/KTKKNITUNET8/KTKGUEST/libr/KTKGuest.WebComponents/Other/Loading/LoadingSpinner.razor]
+build_metadata.AdditionalFiles.TargetPath = T3RoZXJcTG9hZGluZ1xMb2FkaW5nU3Bpbm5lci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ilyao/KTKKNITUNET8/KTKGUEST/libr/KTKGuest.WebComponents/Other/Schedule/DayOfWeek.razor]
+build_metadata.AdditionalFiles.TargetPath = T3RoZXJcU2NoZWR1bGVcRGF5T2ZXZWVrLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ilyao/KTKKNITUNET8/KTKGUEST/libr/KTKGuest.WebComponents/Other/Schedule/ScheduleIsNotPublished.razor]
+build_metadata.AdditionalFiles.TargetPath = T3RoZXJcU2NoZWR1bGVcU2NoZWR1bGVJc05vdFB1Ymxpc2hlZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ilyao/KTKKNITUNET8/KTKGUEST/libr/KTKGuest.WebComponents/Other/Schedule/ScheduleTable.razor]
+build_metadata.AdditionalFiles.TargetPath = T3RoZXJcU2NoZWR1bGVcU2NoZWR1bGVUYWJsZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ilyao/KTKKNITUNET8/KTKGUEST/libr/KTKGuest.WebComponents/Other/Schedule/ScheduleTables.razor]
+build_metadata.AdditionalFiles.TargetPath = T3RoZXJcU2NoZWR1bGVcU2NoZWR1bGVUYWJsZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ilyao/KTKKNITUNET8/KTKGUEST/libr/KTKGuest.WebComponents/Pages/Feedback.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmVlZGJhY2sucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ilyao/KTKKNITUNET8/KTKGUEST/libr/KTKGuest.WebComponents/Pages/Info.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5mby5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ilyao/KTKKNITUNET8/KTKGUEST/libr/KTKGuest.WebComponents/Pages/Schedules.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NoZWR1bGVzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ilyao/KTKKNITUNET8/KTKGUEST/libr/KTKGuest.WebComponents/Pages/SelectorValue.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VsZWN0b3JWYWx1ZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ilyao/KTKKNITUNET8/KTKGUEST/libr/KTKGuest.WebComponents/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 

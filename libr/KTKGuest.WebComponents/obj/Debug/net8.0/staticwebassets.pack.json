@@ -1,0 +1,53 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\ilyao\\KTKKNITUNET8\\KTKGUEST\\libr\\KTKGuest.WebComponents\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\ilyao\\KTKKNITUNET8\\KTKGUEST\\libr\\KTKGuest.WebComponents\\wwwroot\\css\\styles.css",
+      "PackagePath": "staticwebassets\\css\\styles.css"
+    },
+    {
+      "Id": "C:\\Users\\ilyao\\KTKKNITUNET8\\KTKGUEST\\libr\\KTKGuest.WebComponents\\wwwroot\\img\\calendar.png",
+      "PackagePath": "staticwebassets\\img\\calendar.png"
+    },
+    {
+      "Id": "C:\\Users\\ilyao\\KTKKNITUNET8\\KTKGUEST\\libr\\KTKGuest.WebComponents\\wwwroot\\img\\feedback.png",
+      "PackagePath": "staticwebassets\\img\\feedback.png"
+    },
+    {
+      "Id": "C:\\Users\\ilyao\\KTKKNITUNET8\\KTKGUEST\\libr\\KTKGuest.WebComponents\\wwwroot\\img\\info.png",
+      "PackagePath": "staticwebassets\\img\\info.png"
+    },
+    {
+      "Id": "C:\\Users\\ilyao\\KTKKNITUNET8\\KTKGUEST\\libr\\KTKGuest.WebComponents\\wwwroot\\img\\logo-loader.png",
+      "PackagePath": "staticwebassets\\img\\logo-loader.png"
+    },
+    {
+      "Id": "C:\\Users\\ilyao\\KTKKNITUNET8\\KTKGUEST\\libr\\KTKGuest.WebComponents\\wwwroot\\img\\return.png",
+      "PackagePath": "staticwebassets\\img\\return.png"
+    },
+    {
+      "Id": "C:\\Users\\ilyao\\KTKKNITUNET8\\KTKGUEST\\libr\\KTKGuest.WebComponents\\wwwroot\\logo.png",
+      "PackagePath": "staticwebassets\\logo.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.KTKGuest.WebComponents.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.KTKGuest.WebComponents.props",
+      "PackagePath": "build\\KTKGuest.WebComponents.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.KTKGuest.WebComponents.props",
+      "PackagePath": "buildMultiTargeting\\KTKGuest.WebComponents.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.KTKGuest.WebComponents.props",
+      "PackagePath": "buildTransitive\\KTKGuest.WebComponents.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

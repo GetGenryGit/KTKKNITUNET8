@@ -1,0 +1,234 @@
+﻿@page "/"
+
+@inherits RefreshablePageBase;
+
+@inject ISchedulesService ScheduleService
+@inject ILocalStorageService LocalStorageService
+@inject ISessionStorageService SessionStorageService
+@inject IToastService ToastService
+
+<PageTitle>Расписание КТК</PageTitle>
+
+<header>
+    <img class="header__btn"
+         src="_content/KTKGuest.WebComponents/img/info.png" alt=""
+         @onclick="NavigateInfo"
+         style="opacity: 0; pointer-events: none;"/>
+
+    <div class="header__title">Расписание</div>
+
+    <img class="header__btn"
+         src="_content/KTKGuest.WebComponents/img/feedback.png" alt=""
+         @onclick="NavigateFeedback" />
+</header>
+
+@if (isInitLoading)
+{
+    <LoadingBody />
+}
+else
+{
+    <div class="sort-tools" disabled="@isBusy.ToString()">
+        <input class="sel-date" type="date" id="day" @bind="SelectedDate" @bind:after="async () => await onSelectedDateChange()">
+
+        <select class="sel-type" id="type" @bind="SelectedType" @bind:after="async () => await onSelectedTypeChange()">
+            <option value="@ScheduleType.Collectives">Группы</option>
+            <option value="@ScheduleType.Teachers">Преподаватели</option>
+            <option value="@ScheduleType.Classrooms">Аудитории</option>
+        </select>
+
+        <input class="sel-value" id="value" type="button" @bind="SelectedValue" @onclick="() => navigateSelectValue()" readonly />
+        @if (SelectedValue != "Не выбрано")
+        {
+            <div class="clear-value" @onclick="async () => await clearValue()">
+                Очистить
+            </div>
+        }
+
+    </div>
+
+    <DayOfWeek SelectedDate="SelectedDate" />
+
+    @if (isBusy)
+    {
+        <LoadingSpinner />
+    }
+    else if (ScheduleService.IsScheduleNotPublished)
+    {
+        <ScheduleIsNotPublished />
+    }
+    else if (scheduleList != null)
+    {
+        <ScheduleTables ScheduleList="scheduleList" />
+    }
+}
+
+
+
+@code {
+    #region [Properties]
+    private bool isInitLoading;
+    private bool isBusy;
+
+    private const string defaultChoice = "Не выбрано";
+
+    private DateTime selectedDate = DateTime.Now;
+    public DateTime SelectedDate
+    {
+        get => selectedDate;
+        set => selectedDate = value == DateTime.MinValue ? DateTime.Now : value;
+    }
+
+    private ScheduleType selectedType;
+    public ScheduleType SelectedType
+    {
+        get => selectedType;
+        set
+        {
+            selectedType = value == null ? ScheduleType.Collectives : value;
+        }
+    }
+
+    private string selectedValue = defaultChoice;
+    public string SelectedValue
+    {
+        get => selectedValue;
+        set
+        {
+            selectedValue = value == null ? defaultChoice : value;
+        }
+    }
+
+    private ScheduleObj? scheduleList;
+    #endregion
+
+    #region [OnInit]
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+
+        try
+        {
+            isInitLoading = true;
+
+            var dateTimeStr = await SessionStorageService.GetItemAsync<string>(nameof(selectedDate));
+
+            SelectedDate = Convert.ToDateTime(dateTimeStr);
+            SelectedType = await LocalStorageService.GetItemAsync<ScheduleType>(nameof(selectedType));
+            SelectedValue = await LocalStorageService.GetItemAsync<string>("selectedValue");
+
+            scheduleList = await ScheduleService.GetScheduleAsync(SelectedDate, SelectedType, SelectedValue);
+
+            isInitLoading = false;
+        }
+        catch (Exception ex)
+        {
+            isInitLoading = false;
+#if DEBUG
+            ToastService.ShowError(ex.Message);
+#else
+            ToastService.ShowError("Отсутствует соединение с сервером! Пожалуйста обновите страницу или попробуйте позже!");
+#endif
+            await Task.Delay(10000);
+            await OnInitializedAsync();
+        }
+    }
+    #endregion
+
+    #region [Methods]
+    private void NavigateInfo()
+        => NavigationManager.NavigateTo("/info");
+
+    private void NavigateFeedback()
+        => NavigationManager.NavigateTo("/feedback");
+
+    private void navigateSelectValue()
+        => NavigationManager.NavigateTo($"/select_value/{SelectedType.ToString().ToLower()}");
+    
+
+    private async Task clearValue()
+    {
+        try
+        {
+            isBusy = true;
+
+            SelectedValue = defaultChoice;
+
+            await LocalStorageService.RemoveItemAsync(nameof(selectedValue));
+            scheduleList = await ScheduleService.GetScheduleAsync(SelectedDate, SelectedType, SelectedValue);
+
+            isBusy = false;
+        }
+        catch (Exception ex)
+        {
+            isBusy = false;
+#if DEBUG
+            ToastService.ShowError(ex.Message);
+#else
+            ToastService.ShowError("Отсутствует соединение с сервером! Пожалуйста обновите страницу или попробуйте позже!");
+#endif
+            await Task.Delay(10000);
+            await clearValue();
+        }
+    }
+
+    private async Task onSelectedDateChange()
+    {
+        try
+        {
+            isBusy = true;
+
+            await SessionStorageService.SetItemAsync(nameof(selectedDate), selectedDate.ToString());
+            scheduleList = await ScheduleService.GetScheduleAsync(SelectedDate, SelectedType, SelectedValue);
+
+            isBusy = false;
+        }
+        catch (Exception ex)
+        {
+            isBusy = false;
+#if DEBUG
+            ToastService.ShowError(ex.Message);
+#else
+            ToastService.ShowError("Отсутствует соединение с сервером! Пожалуйста обновите страницу или попробуйте позже!");
+#endif
+            await Task.Delay(10000);
+            await onSelectedDateChange();
+        }
+    }
+
+    private async Task onSelectedTypeChange()
+    {
+        try
+        {
+            isBusy = true;
+
+            SelectedValue = defaultChoice;
+
+            await LocalStorageService.SetItemAsync(nameof(selectedValue), SelectedValue);
+            await LocalStorageService.SetItemAsync(nameof(selectedType), SelectedType);
+
+            scheduleList = await ScheduleService.GetScheduleAsync(SelectedDate, SelectedType, SelectedValue);
+
+            isBusy = false;
+        }
+        catch (Exception ex)
+        {
+            isBusy = false;
+#if DEBUG
+            ToastService.ShowError(ex.Message);
+#else
+            ToastService.ShowError("Отсутствует соединение с сервером! Пожалуйста обновите страницу или попробуйте позже!");
+#endif
+            await Task.Delay(10000);
+            await onSelectedTypeChange();
+        }
+    }
+    #endregion
+}

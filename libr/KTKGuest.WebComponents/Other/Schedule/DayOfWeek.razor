@@ -1,0 +1,11 @@
+﻿<div class="day-of-week">
+    <p>
+        @char.ToUpper(SelectedDate.ToString("dddd")[0])@SelectedDate.ToString("dddd").Substring(1)
+    </p>
+    <hr>
+</div>
+
+@code{
+    [Parameter]
+    public DateTime SelectedDate { get; set; }
+}

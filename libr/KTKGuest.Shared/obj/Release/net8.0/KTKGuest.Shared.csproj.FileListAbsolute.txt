@@ -1,0 +1,13 @@
+C:\Users\ilyao\KTKKNITUNET8\KTKGUEST\libr\KTKGuest.Shared\bin\Release\net8.0\KTKGuest.Shared.deps.json
+C:\Users\ilyao\KTKKNITUNET8\KTKGUEST\libr\KTKGuest.Shared\bin\Release\net8.0\KTKGuest.Shared.dll
+C:\Users\ilyao\KTKKNITUNET8\KTKGUEST\libr\KTKGuest.Shared\bin\Release\net8.0\KTKGuest.Shared.pdb
+C:\Users\ilyao\KTKKNITUNET8\KTKGUEST\libr\KTKGuest.Shared\obj\Release\net8.0\KTKGuest.Shared.csproj.AssemblyReference.cache
+C:\Users\ilyao\KTKKNITUNET8\KTKGUEST\libr\KTKGuest.Shared\obj\Release\net8.0\KTKGuest.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ilyao\KTKKNITUNET8\KTKGUEST\libr\KTKGuest.Shared\obj\Release\net8.0\KTKGuest.Shared.AssemblyInfoInputs.cache
+C:\Users\ilyao\KTKKNITUNET8\KTKGUEST\libr\KTKGuest.Shared\obj\Release\net8.0\KTKGuest.Shared.AssemblyInfo.cs
+C:\Users\ilyao\KTKKNITUNET8\KTKGUEST\libr\KTKGuest.Shared\obj\Release\net8.0\KTKGuest.Shared.csproj.CoreCompileInputs.cache
+C:\Users\ilyao\KTKKNITUNET8\KTKGUEST\libr\KTKGuest.Shared\obj\Release\net8.0\KTKGuest.Shared.dll
+C:\Users\ilyao\KTKKNITUNET8\KTKGUEST\libr\KTKGuest.Shared\obj\Release\net8.0\refint\KTKGuest.Shared.dll
+C:\Users\ilyao\KTKKNITUNET8\KTKGUEST\libr\KTKGuest.Shared\obj\Release\net8.0\KTKGuest.Shared.pdb
+C:\Users\ilyao\KTKKNITUNET8\KTKGUEST\libr\KTKGuest.Shared\obj\Release\net8.0\ref\KTKGuest.Shared.dll
+C:\Users\ilyao\KTKKNITUNET8\KTKGUEST\libr\KTKGuest.Shared\obj\Release\net8.0\KTKGuest.Shared.sourcelink.json

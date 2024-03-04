@@ -1,0 +1,107 @@
+﻿@inject IFeedbackService FeedbackService
+@inject IToastService ToastService
+@inject NavigationManager NavigationManager
+
+@if (isBusy)
+{
+    <LoadingSpinner />
+}
+else
+{
+    <div class="form-wrapper">
+        <EditForm class="feedback-form"
+                  EditContext="feedbackContext"
+                  OnValidSubmit="async () => await Submit()"
+                  autocomplete="off"
+                  novalidate>
+            <DataAnnotationsValidator />
+
+            <p class="feedback-form__title">Опишите проблему</p>
+
+            <div class="feedback-form__input-wrap">
+                <InputText class="feedback-form__input-field"
+                           type="text"
+                           @bind-Value="feedback.Name"
+                           placeholder="Введите ваше имя" />
+                <ValidationMessage For="(() => feedback.Name)" />
+
+            </div>
+
+            <div class="feedback-form__input-wrap">
+                <InputText class="feedback-form__input-field"
+                           type="email"
+                           @bind-Value="feedback.Email"
+                           placeholder="Введите ваш email" />
+                <ValidationMessage For="(() => feedback.Email)" />
+            </div>
+
+            <div class="feedback-form__input-wrap-text-area">
+                <InputTextArea class="feedback-form__input-text-area"
+                               type="email"
+                               @bind-Value="feedback.Content"
+                               placeholder="Введите текст сообщения..." />
+                <ValidationMessage For="(() => feedback.Content)" />
+            </div>
+
+            <button class="feedback-form__btn" type="submit">Отправить</button>
+
+            <p class="feedback-form__description">
+                Спасибо за участие в развитие проекта! Ответ на ваше сообщение придет на оставленную вами электронную почту.
+            </p>
+        </EditForm>
+    </div>
+}
+
+@code {
+    #region [Properties]
+    private FeedbackContent? feedback;
+    private EditContext? feedbackContext;
+
+    private bool isBusy;
+    #endregion
+
+    #region [OnInit]
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        feedback = new();
+        feedbackContext = new(feedback);
+    }
+
+    private async Task Submit()
+    {
+        try
+        {
+            isBusy = true;
+
+            var response = await FeedbackService.SendAsync(feedback); ;
+            if (!response.Result)
+            {
+                ToastService.ShowError(response.Message);
+
+                await Task.Delay(2000);
+
+                isBusy = false;
+                return;
+            }
+
+            ToastService.ShowSuccess(response.Message);
+
+            await Task.Delay(5000);
+
+            NavigationManager.NavigateTo("/", true, true);
+            isBusy = false;
+        }
+        catch (Exception ex)
+        {
+            isBusy = false;
+#if DEBUG
+            ToastService.ShowError(ex.Message);
+#else
+            ToastService.ShowError("Отсутствует соединение с сервером! Пожалуйста обновите страницу или попробуйте позже!");
+#endif
+        }
+        
+    }
+    #endregion
+}

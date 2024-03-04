@@ -1,0 +1,11 @@
+﻿<div class="schedule-container">
+    @foreach (var item in ScheduleList.ScheduleItems)
+    {
+        <ScheduleTable Item="item" />
+    }
+</div>
+
+@code{
+    [Parameter]
+    public ScheduleObj ScheduleList { get; set; }
+}

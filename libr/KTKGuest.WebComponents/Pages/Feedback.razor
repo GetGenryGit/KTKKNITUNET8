@@ -1,0 +1,28 @@
+﻿@page "/feedback"
+
+@inject NavigationManager NavigationManager
+
+<header>
+    <img class="header__btn"
+         src="_content/KTKGuest.WebComponents/img/return.png" alt=""
+         @onclick="NavigateBack" />
+
+    <div class="header__title">Обратная связь</div>
+
+    <img class="header__btn"
+         src="_content/KTKGuest.WebComponents/img/feedback.png" alt=""
+         @onclick="NavigateFeedback"
+         style="opacity: 0; pointer-events: none;" />
+</header>
+
+<FeedbackForm/>
+
+
+
+@code {
+    private void NavigateBack()
+        => NavigationManager.NavigateTo("..", true, true);
+
+    private void NavigateFeedback()
+        => NavigationManager.NavigateTo("/feedback");
+}

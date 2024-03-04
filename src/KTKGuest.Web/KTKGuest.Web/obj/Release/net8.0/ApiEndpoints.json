@@ -1,0 +1,367 @@
+[
+  {
+    "ContainingType": "KTKGuest.Web.Controllers.AuthController",
+    "Method": "RefreshToken",
+    "RelativePath": "api/Auth/refresh_token",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "token",
+        "Type": "KTKGuest.Web.Models.TokenRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KTKGuest.Web.Controllers.AuthController",
+    "Method": "SignIn",
+    "RelativePath": "api/Auth/sign_in",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "KTKGuest.Web.Models.LoginUser",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KTKGuest.Web.Controllers.AuthController",
+    "Method": "SignOut",
+    "RelativePath": "api/Auth/sign_out",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "token",
+        "Type": "KTKGuest.Web.Models.TokenRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KTKGuest.Web.Controllers.DictionariesController",
+    "Method": "Add",
+    "RelativePath": "api/Dictionaries/add/{type}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "type",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "list",
+        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KTKGuest.Web.Controllers.DictionariesController",
+    "Method": "Get",
+    "RelativePath": "api/Dictionaries/get",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "type",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KTKGuest.Web.Controllers.DictionariesController",
+    "Method": "GetAll",
+    "RelativePath": "api/Dictionaries/get_all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "type",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KTKGuest.Web.Controllers.FeedbacksController",
+    "Method": "Add",
+    "RelativePath": "api/Feedbacks/add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "KTKGuest.Shared.Models.FeedbackContent",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KTKGuest.Web.Controllers.FeedbacksController",
+    "Method": "ChangeStatus",
+    "RelativePath": "api/Feedbacks/change_status/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KTKGuest.Web.Controllers.FeedbacksController",
+    "Method": "Get",
+    "RelativePath": "api/Feedbacks/get",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KTKGuest.Web.Controllers.LogsController",
+    "Method": "Get",
+    "RelativePath": "api/Logs/get",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "role",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KTKGuest.Web.Controllers.NotificationsController",
+    "Method": "Send",
+    "RelativePath": "api/Notifications/send",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "KTKGuest.Web.Models.NotificationContent",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KTKGuest.Web.Controllers.SchedulesController",
+    "Method": "Add",
+    "RelativePath": "api/Schedules/add/{date}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "date",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "schedule",
+        "Type": "KTKGuest.Shared.Models.ScheduleGet",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KTKGuest.Web.Controllers.SchedulesController",
+    "Method": "DeleteByDate",
+    "RelativePath": "api/Schedules/delete_by_date/{date}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "date",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KTKGuest.Web.Controllers.SchedulesController",
+    "Method": "Get",
+    "RelativePath": "api/Schedules/get",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "date",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "type",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "value",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KTKGuest.Web.Controllers.TeacherActivityContoller",
+    "Method": "Get",
+    "RelativePath": "api/teacher_activity/{date}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "date",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KTKGuest.Web.Controllers.TeacherActivityContoller",
+    "Method": "Post",
+    "RelativePath": "api/teacher_activity/{date}/{teacher}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "date",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      },
+      {
+        "Name": "teacher",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "lessons",
+        "Type": "System.Collections.Generic.List\u00601[[KTKGuest.Shared.Models.ScheduleItem, KTKGuest.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KTKGuest.Web.Controllers.UsersController",
+    "Method": "Create",
+    "RelativePath": "api/Users/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "KTKGuest.Web.Models.UserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KTKGuest.Web.Controllers.UsersController",
+    "Method": "Delete",
+    "RelativePath": "api/Users/delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KTKGuest.Web.Controllers.UsersController",
+    "Method": "GetAll",
+    "RelativePath": "api/Users/get_all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KTKGuest.Web.Controllers.UsersController",
+    "Method": "Get",
+    "RelativePath": "api/Users/get/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KTKGuest.Web.Controllers.UsersController",
+    "Method": "Update",
+    "RelativePath": "api/Users/update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "KTKGuest.Web.Models.UserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

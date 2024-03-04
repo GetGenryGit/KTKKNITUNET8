@@ -1,0 +1,248 @@
+﻿@page "/select_value/{Type}"
+
+@inherits RefreshablePageBase;
+
+@inject IDictionariesService DictionariesService
+@inject ILocalStorageService LocalStorageService
+@inject IToastService ToastService
+
+<PageTitle>Расписание КТК</PageTitle>
+
+<header>
+    <img class="header__btn"
+         src="_content/KTKGuest.WebComponents/img/return.png" alt=""
+         @onclick="NavigateBack" />
+
+    <div class="header__title">Расписание</div>
+
+    <img class="header__btn"
+         src="_content/KTKGuest.WebComponents/img/feedback.png" alt=""
+         @onclick="NavigateFeedback"
+         style="opacity: 0; pointer-events: none;" />
+</header>
+
+<div class="container-search-bar">
+    <input type="search" placeholder="Поиск..." @bind="FilterValue" />
+</div>
+
+@if (isInitLoading)
+{
+    <LoadingSpinner />
+}
+else
+{
+    @if (filteredList.Count < 1)
+    {
+        <div class="spinner-container">
+            <h3>Не найдено!</h3>
+        </div>
+    }
+    else
+    {
+        <div class="container-frames">
+            @foreach (var item in filteredList)
+            {
+                <div class="@dictionaryStyleClass" @onclick="async () => await selectValue(item)">
+                    <h3>@item</h3>
+                </div>
+            }
+        </div>
+    }
+}
+
+<style>
+    .container-search-bar {
+        display: flex;
+        margin: 20px 30px;
+        align-items: center;
+        gap: 10px;
+    }
+
+        .container-search-bar > input {
+            width: 100%;
+            height: 50px;
+            font-size: 18px;
+            background: LightGray;
+            border: none;
+            border-radius: 35px;
+            padding: 1px 15px 1px 15px;
+        }
+
+    .container-frames {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .frame-teacher {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgb(176, 176, 176);
+        border-radius: 10px;
+        height: 45px;
+        width: 100%;
+        background-color: white;
+        color: black;
+        font-size: 18px;
+        font-weight: 700;
+        padding: 1px 15px 1px 15px;
+        margin: 5px;
+        box-shadow: 2px 2px 1px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    .frame-classroom {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgb(176, 176, 176);
+        border-radius: 10px;
+        height: 45px;
+        width: auto;
+        background-color: white;
+        color: black;
+        font-size: 18px;
+        font-weight: 700;
+        padding: 1px 15px 1px 15px;
+        margin: 7px;
+        box-shadow: 2px 2px 1px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    .frame-collective {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgb(176, 176, 176);
+        border-radius: 10px;
+        height: 45px;
+        width: auto;
+        background-color: white;
+        color: black;
+        font-size: 18px;
+        font-weight: 700;
+        padding: 1px 15px 1px 15px;
+        margin: 7px;
+        box-shadow: 2px 2px 1px 0px rgba(0, 0, 0, 0.25);
+    }
+</style>
+
+
+@code {
+    #region [Parameters]
+    [Parameter]
+    public string Type { get; set; }
+    #endregion
+
+    #region [Properties]
+    private const string teacherStyle = "frame-teacher";
+    private const string classroomStyle = "frame-classroom";
+    private const string collectiveStyle = "frame-collective";
+
+    private string dictionaryStyleClass;
+
+    private bool isInitLoading = true;
+
+    private string filterValue; 
+    private string FilterValue 
+    { 
+        get => filterValue;
+        set
+        {
+            filterValue = value;
+            filterListByValue();
+        }
+    }
+
+    private DictionaryType dictionaryType;
+
+    private List<string>? rawList;
+    private List<string>? filteredList;
+    #endregion
+
+    #region [OnInit]
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+
+        try
+        {
+            isInitLoading = true;
+
+            var isEnum = Enum.TryParse<DictionaryType>(Type, true, out dictionaryType);
+            if (!isEnum)
+            {
+                NavigationManager.NavigateTo("/", true, true);
+                return;
+            }
+
+            dictionaryType = Enum.Parse<DictionaryType>(Type, true);
+            switch (dictionaryType)
+            {
+                case DictionaryType.Collectives:
+                    dictionaryStyleClass = collectiveStyle;
+                    break;
+                case DictionaryType.Teachers:
+                    dictionaryStyleClass = teacherStyle;
+                    break;
+                case DictionaryType.Classrooms:
+                    dictionaryStyleClass = classroomStyle;
+                    break;
+                default:
+                    NavigationManager.NavigateTo("/", true, true);
+                    return;
+            }
+
+            rawList = await DictionariesService.GetList(dictionaryType);
+
+            if (Type != "teachers")
+                rawList = rawList.OrderBy(x => x.Length).ToList();
+
+            filteredList = rawList;
+            isInitLoading = false;
+        }
+        catch (Exception ex)
+        {
+            isInitLoading = false;
+#if DEBUG
+            ToastService.ShowError(ex.Message);
+#else
+            ToastService.ShowError("Отсутствует соединение с сервером! Пожалуйста обновите страницу или попробуйте позже!");
+#endif
+            await Task.Delay(10000);
+            await OnInitializedAsync();
+        }
+        
+    }
+    #endregion
+
+    #region [Methods]
+    private void NavigateBack()
+        => NavigationManager.NavigateTo("..", true, true);
+
+    private void NavigateFeedback()
+        => NavigationManager.NavigateTo("/feedback");
+
+    private void filterListByValue()
+    {
+        if (string.IsNullOrWhiteSpace(FilterValue))
+        {
+            filteredList = rawList;
+            return;
+        }
+
+        filteredList = rawList.Where(i => i.ToLower().Contains(filterValue.ToLower().Trim())).ToList();
+    }
+
+    private async Task selectValue(string item)
+    {
+        await LocalStorageService.SetItemAsync("selectedValue", item);
+        NavigationManager.NavigateTo("/", true, true);
+    }
+    #endregion
+}
