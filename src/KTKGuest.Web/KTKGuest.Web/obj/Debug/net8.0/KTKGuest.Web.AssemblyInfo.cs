@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KTKGuest.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+437c72258b581c79ee72f453532cbfe588f16ed3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+96407a82e45006242c1e073633019e5d60fea8d9")]
 [assembly: System.Reflection.AssemblyProductAttribute("KTKGuest.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KTKGuest.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

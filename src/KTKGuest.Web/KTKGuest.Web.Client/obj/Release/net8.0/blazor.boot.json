@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "KTKGuest.Web.Client",
   "resources": {
-    "hash": "sha256-qY2f8+vDX9BySVPSOG4CBtA2F0RdiWI9RXMap568D0U=",
+    "hash": "sha256-4Ac4vVsRvRaV5bN+F6nJZsiPCiv4Rk48wC9bokU9RXU=",
     "jsModuleNative": {
       "dotnet.native.8.0.2.73nw39l6cn.js": "sha256-gPMK16QWoJSTxorlZJqcVtbBRTniIQWlLsJN2O4cJHg="
     },
@@ -213,12 +213,12 @@
       "System.Private.CoreLib.wasm": "sha256-I2w0iHf5nvSQyF1YE1VbgdTzmmz6a4OE6J7vo5wFa/4=",
       "KTKGuest.Shared.wasm": "sha256-EJF+T6h1zq/ctJzybHaq5Uts5A+W+nDPNOKUDvnNnfE=",
       "KTKGuest.WebComponents.wasm": "sha256-7gzYC4D+lB7DXVEF1YHLnL6CqCrCyomVePtd97aMvhg=",
-      "KTKGuest.Web.Client.wasm": "sha256-y4howSu1upkPXUSn5riiL8K470U+wHrE7u1cJJWAOmw="
+      "KTKGuest.Web.Client.wasm": "sha256-SJ/3U9IvW23MIm3W4tGCIM37Ow19+9k/xGxTJDXLJmo="
     },
     "pdb": {
       "KTKGuest.Shared.pdb": "sha256-mdnP2v/4TTwAesDuSES+1jIjED9ZZIkpZMsbmtgmCjE=",
       "KTKGuest.WebComponents.pdb": "sha256-O1iezbq4sP4+0sIbxGGFCuTTO3iKuC++bfu4raaV0Ug=",
-      "KTKGuest.Web.Client.pdb": "sha256-rzgvYRd8Gk/B2uD+q+ckMB5VppUWdrCzYLS+hfVNxdA="
+      "KTKGuest.Web.Client.pdb": "sha256-WYaNXAUZqWY6lyjM58c6ps9mR/9g7SdzYp1GsmC1CLk="
     }
   },
   "cacheBootResources": true,

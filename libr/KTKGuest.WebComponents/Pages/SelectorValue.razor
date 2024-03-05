@@ -241,7 +241,7 @@ else
 
     private async Task selectValue(string item)
     {
-        await LocalStorageService.SetItemAsync("selectedValue", item);
+        await LocalStorageService.SetItemAsync("SelectedValue", item);
         NavigationManager.NavigateTo("/", true, true);
     }
     #endregion

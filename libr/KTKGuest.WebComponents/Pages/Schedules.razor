@@ -118,11 +118,11 @@ else
         {
             isInitLoading = true;
 
-            var dateTimeStr = await SessionStorageService.GetItemAsync<string>(nameof(selectedDate));
+            var dateTimeStr = await SessionStorageService.GetItemAsync<string>(nameof(SelectedDate));
 
             SelectedDate = Convert.ToDateTime(dateTimeStr);
-            SelectedType = await LocalStorageService.GetItemAsync<ScheduleType>(nameof(selectedType));
-            SelectedValue = await LocalStorageService.GetItemAsync<string>("selectedValue");
+            SelectedType = await LocalStorageService.GetItemAsync<ScheduleType>(nameof(SelectedType));
+            SelectedValue = await LocalStorageService.GetItemAsync<string>(nameof(SelectedValue));
 
             scheduleList = await ScheduleService.GetScheduleAsync(SelectedDate, SelectedType, SelectedValue);
 
@@ -161,7 +161,7 @@ else
 
             SelectedValue = defaultChoice;
 
-            await LocalStorageService.RemoveItemAsync(nameof(selectedValue));
+            await LocalStorageService.RemoveItemAsync(nameof(SelectedValue));
             scheduleList = await ScheduleService.GetScheduleAsync(SelectedDate, SelectedType, SelectedValue);
 
             isBusy = false;
@@ -185,7 +185,7 @@ else
         {
             isBusy = true;
 
-            await SessionStorageService.SetItemAsync(nameof(selectedDate), selectedDate.ToString());
+            await SessionStorageService.SetItemAsync(nameof(SelectedDate), selectedDate.ToString());
             scheduleList = await ScheduleService.GetScheduleAsync(SelectedDate, SelectedType, SelectedValue);
 
             isBusy = false;
@@ -211,8 +211,8 @@ else
 
             SelectedValue = defaultChoice;
 
-            await LocalStorageService.SetItemAsync(nameof(selectedValue), SelectedValue);
-            await LocalStorageService.SetItemAsync(nameof(selectedType), SelectedType);
+            await LocalStorageService.SetItemAsync(nameof(SelectedValue), SelectedValue);
+            await LocalStorageService.SetItemAsync(nameof(SelectedType), SelectedType);
 
             scheduleList = await ScheduleService.GetScheduleAsync(SelectedDate, SelectedType, SelectedValue);
 
